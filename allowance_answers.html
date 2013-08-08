@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Allowance Application</title>
+    <script src="jquery-1.10.2.js"></script>
+
+    <script>
+        // variable to keep the next ID of next transaction to record to local storage
+        var nextID=1;
+        var transactions=new Array();
+
+        if (typeof(Storage) !== "undefined") {
+            // browser supports local storage
+            if (localStorage.nextID) {
+                nextID = localStorage.nextID.numberValue;
+            } else {
+                localStorage = nextID;
+            }
+
+        } else {
+            alert("Sorry.  Your browser doesn't support local storage");
+        }
+
+        $(document).ready( function() {
+
+            // 1. make the element #disappear disappear
+
+            $("#disappear").click( function() {
+                $("#disappear").hide();
+            })
+        });
+
+        function saveMyForm(thedate, thetransaction, thetype, theamount) {
+            var entry = {
+                tDate: thedate,
+                tTransaction: thetransaction,
+                tType: thetype,
+                tAmount: theamount
+            };
+            localStorage.transactions[nextID] = JSON.stringify(entry);
+            nextID++;
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: helvetica;
+        }
+        #transactions {
+            min-width: 75%;
+            border: 1px solid;
+        }
+        #transactions th {
+            background-color: #cccccc;
+        }
+    </style>
+</head>
+<body>
+<h1>My Allowance</h1>
+
+<script>
+    // Add add_transaction function here
+    function add_transaction() {
+        alert("Got it");
+    }
+</script>
+<!-- Create table here with id=transactions -->
+
+<table id="transactions">
+    <tr>
+        <th>Date</th>
+        <th>Transaction</th>
+        <th>Type</th>
+        <th>Amount</th>
+        <th>Balance</th>
+    </tr>
+    <tr>
+        <td>Jan 1</td>
+        <td>Initial deposit</td>
+        <td>Deposit</td>
+        <td>$15.00</td>
+        <td>$15.00</td>
+    </tr>
+</table>
+
+<h2>Add new transaction</h2>
+<!-- Add form to add new transactions -->
+<form id="addform" action="#">
+    Date:<input type="text" name="tdate"/>     <br>
+    Transaction:<input type="text" name="ttransaction"/> <br>
+    Deposit:<input type="radio" name="ttype" value="Deposit"/>
+    Withdrawal<input type="radio" name="ttype" value="Withdrawal"/><br>
+    Amount:<input type="text" name="tamount"/> <br>
+    <input type="submit" value="Add" onclick="add_transaction()"/>
+
+</form>
+
+<h2>How to build</h2>
+<h3>Add table</h3>
+<p>Read about building tables <a href="http://www.w3schools.com/html/html_tables.asp">here</a></p>
+<ol>
+    <li>Create table with <code>id=transactions</code>.</li>
+    <li>Add header row with labels: Date, Transaction, Type,Amount,Balance</li>
+    <li>Add a second row and make up values for each cell</li>
+</ol>
+
+<h3>Add form</h3>
+<p>Add a form to add new transactions and the functions to add. Read
+    <a href="http://www.w3schools.com/html/html_forms.asp">
+    this</a> first.</p>
+<ol>
+    <li>Create a form with <code>id=addform</code></li>
+    <li>Add 4 inputs: tdate (text), ttransaction (text), ttype (radiobox with 2 options: deposit or
+        withdrawal), tamount (text).</li>
+    <li>Add a submit button within the form.  Label it <code>Add</code></li>
+    <li>Create a javascript function that runs with the submit button is pressed. For now,
+    just have the function create an <code>alert</code> box saying &quotGot it!&quot or
+    something more clever.  Name the function <code>add_transaction()</code>.  Hint: add the click
+    event to the submit button.</li>
+    <li>Within the function, get the values from the form and put them in the right
+    kind of variables: </li>
+    <li>Within the function, add a row with the values from the form.  See
+    <a href="http://www.w3schools.com/jsref/met_table_insertrow.asp">here</a> for
+    an example.  Don't worry about the balance column yet.</li>
+    <li>Save the form by calling the function saveMyForm() and passing tdate, ttransaction, ttype,
+    and tamount.  See <a href="http://www.w3schools.com/html/html5_webstorage.asp">here</a>
+    for an example.</li>
+    <li></li>
+</ol>
+
+</body>
+</html>

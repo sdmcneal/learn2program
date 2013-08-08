@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Learning jQuery</title>
+    <script src="jquery-1.10.2.js"></script>
+
+    <script>
+        $(document).ready( function() {
+            // 1. make the element #disappear disappear
+            $("#disappear").click( function() {
+                $("#disappear").hide();
+            })
+        })
+    </script>
+
+    <style>
+        body {
+            font-family: helvetica;
+        }
+    </style>
+</head>
+<body>
+    <h1>Learning jQuery</h1>
+    <ol>
+        <li>Add function to make the following paragraph disappear.  Hint: elements with id's
+        are designated with # signs.</li>
+        <p id="disappear">Disappearing paragraph</p>
+    </ol>
+</body>
+</html>

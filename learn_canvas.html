@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Learning Canvas</title>
+<style>
+    body {
+        font-family: helvetica;
+    }
+    ol li {
+        padding-bottom: 10px;
+    }
+    code {
+        font-weight: 600;
+    }
+</style>
+</head>
+<body>
+
+<h1>Learning HTML5 Drawing Canvas</h1>
+
+<p> Based on a tutorial at <a href="http://www.w3schools.com/html/html5_canvas.asp">here</a></p>
+
+<p> A canvas with the name <code>myCanvas</code> has been created for you.</p>
+
+<ol>
+    <li><strong>Draw Onto The Canvas With JavaScript:</strong> Draw a blue rectangle that is 100 pixels wide and 100 pixels tall starting at coordinate 50,50.
+        Hint: <span style="color:blue">Blue</span> in hexadecimal is <code>#0000FF</code>.</li>
+    <li><strong>Paths:</strong> Draw 3 lines: from (100,200) to (300,200), from (200,200) to (200,400), and (100,400)
+    to (300,400).  What letter is this?  Hint: Do all your <code>moveTo</code>'s and <code>lineTo</code>'s before
+    you use <code>stroke()</code>.</li>
+    <li><strong>Arc's and Circles:</strong> Draw a half circle starting at (300,100) with a radius of 50. Hint: The
+    circumference of a full circle is 2*Pi.  The circumference of a half-circle is Pi.</li>
+    <li><strong>Test:</strong> Draw the words <code>Ian rocks!</code> with no fill in <code>35px Arial</code>
+    font at location 100,300.</li>
+</ol>
+<canvas id="myCanvas" width="400" height="450" style="border:1px solid #aaaaaa">
+    Your browser does not support HTML5.
+</canvas>
+
+<script>
+    // Put all code in here
+    var canvas=document.getElementById("myCanvas");
+    var c=canvas.getContext("2d");
+    c.fillStyle="#0000ff";
+    c.fillRect(50,50,100,100);
+    // 1. draw blue rectangle
+    c.moveTo(100,200);
+    c.lineTo(300,200);
+    c.moveTo(200,200);
+    c.lineTo(200,400);
+    c.moveTo(100,400);
+    c.lineTo(300,400);
+
+
+    c.stroke();
+
+    // 2. Draw three lines
+    c.beginPath();
+    c.arc(300,100,50,0,1*Math.PI);
+    c.stroke();
+    // 3. Draw a half circle
+    c.font="35px Arial";
+    c.fillText("Ian ROCKS",100,300);
+    // 4. Draw Ian rocks
+
+</script>
+
+</body>
+</html>

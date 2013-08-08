@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ian Learns to Program</title>
+<style type="text/css">
+.codeType {
+	font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", monospace;
+	font:
+}
+body {
+	font-family:Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif
+}
+</style>
+</head>
+
+<script>
+	// Ian:  Write your javascript here!!!
+	function insertdate(){
+	    document.getElementById("elephant").innerHTML=Date();
+	}
+</script>
+
+<body>
+<h2>Tutorial</h2>
+<p>Find the JavaScript tutorial at: <a href="http://www.w3schools.com/js/default.asp">http://www.w3schools.com/js/default.asp</a></p> 
+
+<h3>Homework #1</h3>
+<p>Below this paragraph, add a button with the label &quot;<span class="codeType">Click me</span>&quot;, that calls a function <span class="codeType">insertDate()</span> , that prints the current date in a <strong>p</strong> section named <span class="codeType">elephant</span>.</p>
+<h4>Applies</h4>
+<ul>
+	<li>using buttons</li>
+    <li>declaring and using functions</li>
+    <li>using HTML tags</li>
+    <li>using Date() function</li>
+    <li>what the <span class="codeType">id</span> attribute is and how it ties javascript to HTML.</li>
+</ul>
+
+<button type="button" onclick="insertdate()">Click me</button>
+<p id="elephant">I am a minecraft skin</p>
+
+<h3>Test Drive #2</h3>
+<p>Below this paragraph, create two buttons with the labels: &quot;car&quot; and &quot;truck&quot;.  When you click the car button, it changes the image (with id=image1) to either a car (with the image name=<span class="codeType">car.jpg</span>) or truck (with filename=<span class="codeType">truck.jpg</span>).
+<script>
+    function Car(){
+	var element=document.getElementById('image1');
+	element.src="car.jpg";}
+    function Truck() {
+	var element=document.getElementById('image1');
+	element.src="truck.jpg";
+    }
+    function mouseoverme() {
+	var element=document.getElementById('image1');
+	element.src="mouse.png";
+    }
+</script>
+
+
+<button type="button" onclick="Car()">Car</button>
+<button type="button" onclick="Truck()">Truck</button>
+Also, add a event to the image that calls a function <span class="codeType">mouseOverMe()</span> that changes the image to a mouse (with filename=&quot;mouse.png&quot;). <i> Notice it's a .png not a .jpg!</i>
+<h4>Applies:</h4>
+<ul>
+	<li>using buttons again to call functions</li>
+    <li>using HTML's img tag</li>
+    <li>changing graphics image</li>
+    <li>using dynamic events</li>
+</ul>
+<p><img id="image1" onmouseover="mouseoverme()" src="boat.jpg" width="720" height="450" />
+
+<script>
+    function showMyButt() {
+	// get the HTML element first
+	var element=document.getElementById("conjunction");
+	
+	// set the text
+	element.innerHTML="butt";
+	
+	// set the style of the font to red
+	element.style.color="red";
+	
+	// show alert box
+	alert("oops!");
+    }
+</script>
+<h3>Test Drive #3</h3>
+<p>In this paragraph change the word between here <div id="conjunction">and</div> 
+here with the word <span class="codeType">butt</span> (and make it <span style="color: red">red</span> or hex <code>#ff0000</code>) when
+clicking this <a href="javascript:showMyButt();">link</a> and displays an alert box that says &quot;oops!&quot;.
+<h4>Applies:</h4>
+<ul>
+	<li>using document objects (DOM)</li>
+	<li>using alert box</li>
+    <li>using innerHTML method</li>    
+    <li>using hexadecimal to represent color</li> 
+</ul> 
+
+<h2>Variables</h2>
+
+<p>Complete these after reviewing the <strong>JS Variables</strong> tutorials.</p>
+
+<h3>Test Drive #4</h3>
+The paragraph with the id=<code>loveThisStuff</code> has already been created.  A button with the id=<code>variablesRock</code> has also been created.  Next, you create a new function that defines a variable named <code>pokemon</code> and set it to your favorite pokemon name.  Then, set the paragraph text (innerHTML) to the name of that pokemon.
+<script>
+    function Go_picachu() {
+	var pokemon="Yveltal";
+	
+	var element=document.getElementById("loveThisStuff");
+	element.innerHTML=pokemon;
+	
+	element.style.color="blue";
+    }
+</script>
+<p id="loveThisStuff">What is your favorite pokemon?</p>
+<button type="button" onclick="Go_picachu()">Who's your favorite pokemon?</button>
+
+<h2>Data Types</h2>
+
+<p>Complete these after reviewing the JS Data Types chapter</p>
+
+<h3>Test Drive #5</h3>
+
+<p>A button has been created with the label &quot;Show me the 3 most evil Pokemons&quot; that calls a function named showMeEvil().  In that function, create an array named <code>evilPees</code> that has the three most evil Pokemon names in it.  Create a loop that iterates through the names and builds a new String (named <code>badPees</code>) with all the names.  The result is written below.</p>
+
+<script>
+function showMeEvil() {
+	// define variables
+	var badPees;
+	
+	// create loop
+	// in the middle of each loop, append the name of the new pokemon with something like
+	// badPees = badPees + newPokemon	
+	
+	// write back to HTML
+	document.getElementById("evilPokemons").innerHTML=badPees;
+}
+</script>
+<button type="button" onclick="showMeEvil();">Show me the 3 most evil Pokemons</button>
+<p id="evilPokemons">The most evil ones will come here.</p>
+
+<h4>Applies</h4>
+<ul>
+	<li> inline Javascript</li>
+    <li> array data type</li>
+    <li> string data type</li>
+    <li> concatenation (string arithmatic)</li>
+    <li> loops </li>
+    <li> index within array </li>
+</ul>
+
+<h3>Test Drive #6</h3>
+
+<p>The java object has been created with the following definition:</p>
+<code>var movieCharacter = {
+	name: "Optimus Prime",
+    type: "Transformer",
+    description: "Awesomest Transformer"
+}
+</code>
+<p>Where the variable result is assigned, use the object property <code>name</code> instead.
+
+<p id="goodestTransformer">The goodest transformer goes here</p>
+<script>
+var movieCharacter = {
+	name: "Optimus Prime",
+    type: "Transformer",
+    description: "Awesomest Transformer"
+}
+</script>
+<button type="button" onclick="var result = 'replace me with the right code';document.getElementById('goodestTransformer').innerHTML=result;">Click me for goodest Transformer</button>
+
+<h4>Applies</h4>
+<ul>
+	<li> Java objects </li>
+    <li> Properties </li>
+</ul>
+
+</body>
+</html>
